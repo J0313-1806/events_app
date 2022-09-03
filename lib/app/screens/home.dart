@@ -300,16 +300,25 @@ class Home extends StatelessWidget {
                                                 child: ClipRRect(
                                                   borderRadius:
                                                       BorderRadius.circular(16),
-                                                  child: Image.network(
-                                                    eventProvider
-                                                        .package[listIndex]
-                                                        .products[index]
-                                                        .product
-                                                        .bannerImageUrl,
-                                                    fit: BoxFit.cover,
-                                                    height: 100,
-                                                    width: 100,
-                                                  ),
+                                                  child: eventProvider
+                                                          .package[listIndex]
+                                                          .products[index]
+                                                          .product
+                                                          .bannerImageUrl
+                                                          .isNotEmpty
+                                                      ? Image.network(
+                                                          eventProvider
+                                                              .package[
+                                                                  listIndex]
+                                                              .products[index]
+                                                              .product
+                                                              .bannerImageUrl,
+                                                          fit: BoxFit.cover,
+                                                          height: 100,
+                                                          width: 100,
+                                                        )
+                                                      : const Text(
+                                                          "No Image found"),
                                                 ),
                                               );
                                             }),
